@@ -1,0 +1,115 @@
+eZp Member Report script README
+
+What is the eZp Member Report extension?
+================================
+
+eZp Member Report is a true eZ Publish cli script
+that provides commandline script to find members
+and generate a csv report.
+
+
+eZp Member Report version
+=======================
+
+The current version of eZp Member Report is 0.0.5
+Last Major update: January 20, 2014
+
+
+Copyright
+=========
+
+eZp Member Report is copyright 1999-2012 Brookins Consulting and Think Creative
+
+See: doc/COPYRIGHT for more information on the terms of the copyright and license
+
+
+License
+=======
+
+eZp Member Report is licensed under the GNU General Public License.
+
+The complete license agreement is included in the doc/LICENSE file.
+
+eZp Member Report is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 2 of the License, or
+(at your option) any later version.
+
+eZp Member Report is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+The GNU GPL gives you the right to use, modify and redistribute
+eZp Member Report under certain conditions. The GNU GPL license
+is distributed with the software, see the file doc/LICENSE.
+
+It is also available at http://www.gnu.org/licenses/gpl.txt
+
+You should have received a copy of the GNU General Public License
+along with eZp Member Report in doc/LICENSE.  If not, see http://www.gnu.org/licenses/.
+
+Using eZp Member Report under the terms of the GNU GPL is free (as in freedom).
+
+For more information or questions please contact
+license@brookinsconsulting.com
+
+
+Requirements
+============
+
+The following requirements exists for using eZp Member Report extension:
+
+o  eZ Publish version:
+
+   Make sure you use eZ Publish version 4.x (required) or higher. eZ Publish 4.6.x+ (Community Build, 2011.11+) is recommended.
+
+o  PHP version:
+
+   Make sure you have PHP 5.x or higher.
+
+
+Usage - Command line script
+============
+
+# Change directory into eZ Publish website document root:
+cd path/to/ezpublish/docroot;
+
+# Create directory for report to be stored after generation
+mkdir var/orphanedCsvReport;
+
+# Warning: script may consume larger than expected amounts of memory durring execution
+
+# Run the script to generate the report
+php -d memory_limit=-1  ./extension/banff/bin/php/ezpmemberreport.php
+--storage-dir=var/memberReport --hostname=www.example.com --nodeid=5
+
+# Review generated report in open office as a spreadsheet:
+less var/memberReport/memberReport.csv
+
+
+Usage - Cronjob
+============
+
+# Change directory into eZ Publish website document root:
+cd path/to/ezpublish/docroot;
+
+# Run the cronjob manually to check links
+php ./runcronjobs.php memberreportgenerate
+
+
+Troubleshooting
+===============
+
+1. Read the FAQ
+   ------------
+
+   Some problems are more common than others. The most common ones
+   are listed in the the doc/FAQ.
+
+2. Support
+   -------
+
+   If you have find any problems not handled by this document or the FAQ you
+   can contact Brookins Consulting through the support system:
+   http://brookinsconsulting.com/contact
